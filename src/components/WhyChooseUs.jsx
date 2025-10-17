@@ -60,11 +60,18 @@ const WhyChooseUs = () => {
     ];
 
     return (
-        <section className="py-24 section-bg-accent relative overflow-hidden">
-            {/* Background Elements */}
+        <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+            {/* Professional Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                }}></div>
+            </div>
+
+            {/* Subtle Background Elements */}
             <div className="absolute inset-0">
-                <div className="absolute top-10 right-10 w-80 h-80 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float animation-delay-2000"></div>
+                <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl"></div>
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
@@ -74,10 +81,10 @@ const WhyChooseUs = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-5xl md:text-6xl font-display font-bold text-gray-900 mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                         Why Choose IQGSTc?
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
                         Discover what makes IQGSTc the preferred choice for skill development and career advancement
                     </p>
                 </motion.div>
@@ -96,7 +103,6 @@ const WhyChooseUs = () => {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
                         >
                             <div className="flex justify-center mb-6">
                                 <div className="p-4 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl group-hover:scale-110 transition-transform duration-300 animate-pulse-glow">
@@ -126,24 +132,17 @@ const WhyChooseUs = () => {
                             <h3 className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-8">
                                 Ready to Transform Your Career?
                             </h3>
-                            <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-3xl mx-auto">
+                            <p className="text-xl text-black mb-12 leading-relaxed max-w-3xl mx-auto">
                                 Join thousands of successful professionals who have chosen IQGSTc for their skill development journey.
                                 Start your path to international certification today.
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                            <div className="flex justify-center">
                                 <motion.button
                                     className="btn-primary text-lg px-10 py-4"
                                     whileHover={{ scale: 1.05, boxShadow: "var(--shadow-glow)" }}
                                     whileTap={{ scale: 0.95 }}
                                 >
-                                    Start Your Journey Today
-                                </motion.button>
-                                <motion.button
-                                    className="btn-secondary text-lg px-10 py-4"
-                                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    Download Brochure
+                                   <span className='text-black'>Start Your Journey</span>  Today
                                 </motion.button>
                             </div>
                         </div>

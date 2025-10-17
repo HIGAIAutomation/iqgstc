@@ -4,7 +4,15 @@ import { Link } from "react-router-dom";
 
 const Herosection = () => {
     return (
-        <section className="w-full min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-white via-slate-50 to-gray-100 text-gray-900 relative overflow-hidden">
+        <section className="w-full min-h-screen flex flex-col justify-center items-center text-white relative overflow-hidden pt-16 pb-32">
+            {/* Background Image */}
+            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/src/assets/herosection.jpg)'}}></div>
+
+            {/* Overlay for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-indigo-900/70 to-slate-900/80"></div>
+
+           
+
             {/* Professional Background Pattern */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute inset-0" style={{
@@ -15,36 +23,29 @@ const Herosection = () => {
 
             {/* Professional Content */}
             <div className="relative z-10 text-center px-6 max-w-6xl">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-6"
-                >
-                    <span className="inline-block px-4 py-2 bg-blue-50 text-blue-700 text-sm font-medium rounded-full border border-blue-200">
-                        World-Class Skill Development Platform
-                    </span>
-                </motion.div>
+                
 
                 <motion.h1
-                    className="text-4xl md:text-7xl font-heading font-black text-gray-900 mb-8 leading-tight"
+                    className="text-4xl md:text-8xl font-heading font-black text-white mb-8 leading-tight"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.2 }}
                 >
-                    Welcome to
+                    Empowering
                     <br />
-                    <span className="text-gradient-primary">IQGSTc</span>
+                    <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">Global Skills</span>
+                    <br />
+                    <span className="text-amber-100">IQGSTc</span>
                 </motion.h1>
 
                 <motion.p
-                    className="text-lg md:text-xl mb-12 text-gray-700 font-light max-w-4xl mx-auto leading-relaxed"
+                    className="text-xl md:text-2xl mb-12 text-blue-100 font-light max-w-5xl mx-auto leading-relaxed"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    Your Gateway to Global Skill Excellence & Professional Certification.
-                    Join thousands of successful professionals who have transformed their careers with our world-class training programs.
+                    Transform your career with internationally recognized certifications.
+                    Join 1000+ successful professionals worldwide in our comprehensive skill development programs.
                 </motion.p>
 
                 <motion.div
@@ -57,20 +58,20 @@ const Herosection = () => {
                         to="/courses"
                         className="group relative btn-primary text-lg px-12 py-4 overflow-hidden"
                     >
-                        <span className="relative z-10">Apply Now</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        <span className="relative text-gray-900 z-10">Apply <span className="text-white">Now</span></span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                     </Link>
 
                     <Link
                         to="/courses"
-                        className="btn-secondary text-lg px-12 py-4"
+                        className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-12 py-4 rounded-lg font-semibold transition-colors duration-300"
                     >
                         Explore Courses
                     </Link>
 
                     <Link
                         to="/contact"
-                        className="text-gray-700 hover:text-blue-600 font-medium px-8 py-4 transition-colors duration-300"
+                        className="text-white hover:text-blue-200 font-medium px-8 py-4 transition-colors duration-300"
                     >
                         Contact Us →
                     </Link>
@@ -86,7 +87,7 @@ const Herosection = () => {
                     {[
                         { number: "1000+", label: "Students Trained" },
                         { number: "50+", label: "Countries Served" },
-                        { number: "70+", label: "Years Experience" },
+                        { number: "250+", label: "Courses" },
                         { number: "100%", label: "Success Rate" }
                     ].map((stat, index) => (
                         <motion.div
@@ -96,10 +97,10 @@ const Herosection = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                         >
-                            <div className="text-2xl md:text-3xl font-heading font-bold text-blue-600 mb-1">
+                            <div className="text-2xl md:text-3xl font-heading font-bold text-white mb-1">
                                 {stat.number}
                             </div>
-                            <div className="text-sm text-gray-600 font-medium">
+                            <div className="text-sm text-blue-200 font-medium">
                                 {stat.label}
                             </div>
                         </motion.div>

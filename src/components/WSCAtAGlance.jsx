@@ -6,7 +6,7 @@ const WSCAtAGlance = () => {
         {
             icon: (
                 <svg className="w-16 h-16 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             ),
             title: "Global Presence",
@@ -15,7 +15,7 @@ const WSCAtAGlance = () => {
         {
             icon: (
                 <svg className="w-16 h-16 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             ),
             title: "Skill Mastery",
@@ -47,10 +47,10 @@ const WSCAtAGlance = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-5xl md:text-6xl font-display font-bold text-gradient-primary mb-6">
+                    <h2 className="text-5xl md:text-6xl font-display font-bold text-gray-900 mb-6">
                         WSC at a Glance
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
                         World Skill Council - The International Standard for Skill Training, Assessment, and Career Development
                     </p>
                 </motion.div>
@@ -68,10 +68,10 @@ const WSCAtAGlance = () => {
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
-                                <h3 className="text-2xl font-display font-semibold text-gradient-primary mb-4">
+                                <h3 className="text-2xl font-display font-semibold text-gray-900 mb-4">
                                     International Excellence
                                 </h3>
-                                <p className="text-gray-600 leading-relaxed">
+                                <p className="text-gray-700 leading-relaxed">
                                     World Skill Council is the International Standard Skill Training, Skill Assessment, and Career Development Certification body of World Skill Corporation, constituted in London, UK. It has a worldwide presence of Educators & Skill Masters who train thousands of skill aspirants globally.
                                 </p>
                             </motion.div>
@@ -81,10 +81,10 @@ const WSCAtAGlance = () => {
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300, delay: 0.1 }}
                             >
-                                <h3 className="text-2xl font-display font-semibold text-gradient-primary mb-4">
+                                <h3 className="text-2xl font-display font-semibold text-gray-900 mb-4">
                                     Strategic Partnership
                                 </h3>
-                                <p className="text-gray-600 leading-relaxed">
+                                <p className="text-gray-700 leading-relaxed">
                                     IQGSTc is partnered with WSC to provide certified courses, skill assessments, and career development programs. WSC is associated with Central Bharat Sevak Samaj, National Development Agency established in 1952 by Planning Commission, Government of India. The constitution and functioning of Bharat Sevak Samaj is approved unanimously by the Indian Parliament. Over the past seven decades, Central BSS has trained youth for better employment worldwide.
                                 </p>
                             </motion.div>
@@ -108,8 +108,6 @@ const WSCAtAGlance = () => {
                                 transition={{ type: "spring", stiffness: 300 }}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
                             >
                                 <div className="flex justify-center mb-6">
                                     <div className="p-4 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl group-hover:scale-110 transition-transform duration-300">

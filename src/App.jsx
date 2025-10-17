@@ -8,6 +8,7 @@ import AboutPage from './pages/AboutPage';
 import WSCPage from './pages/WSCPage';
 import ContactPage from './pages/ContactPage';
 import BusinessDivisions from './pages/BusinessDivisions';
+import DivisionDetails from './pages/DivisionDetails';
 import CertificateDetails from './pages/CertificateDetails';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<CoursesPage />} />
           <Route path="/business-divisions" element={<BusinessDivisions />} />
+          <Route path="/division/:divisionId" element={<DivisionDetails />} />
           <Route path="/certificate/:certificateId" element={<CertificateDetails />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/wsc" element={<WSCPage />} />

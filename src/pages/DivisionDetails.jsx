@@ -1,10 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-const BusinessDivisions = () => {
+const DivisionDetails = () => {
+    const { divisionId } = useParams();
+
     const divisions = [
         {
+            id: 'business-analytics-intelligence',
             name: 'Business Analytics & Intelligence',
             description: 'Master data-driven decision making and business intelligence tools',
             icon: 'bi bi-graph-up',
@@ -15,12 +18,13 @@ const BusinessDivisions = () => {
                 'Certified Professional in Data Modeling',
                 'Certified Professional in Data Warehouse',
                 'Certified Professional in Microsoft Power BI',
-                'Certified Professional in SOL',
+                'Certified Professional in SQL',
                 'Certified Professional in Statistics',
                 'Certified Professional in Tableau'
             ]
         },
         {
+            id: 'business-law-division',
             name: 'Business Law Division',
             description: 'Understanding legal frameworks and compliance in business operations',
             icon: 'bi bi-scale',
@@ -36,6 +40,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'business-strategy-division',
             name: 'Business Strategy Division',
             description: 'Strategic planning and competitive advantage development',
             icon: 'bi bi-bullseye',
@@ -51,6 +56,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'communication-division',
             name: 'Communication Division',
             description: 'Effective business communication and presentation skills',
             icon: 'bi bi-chat-dots',
@@ -67,6 +73,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'e-commerce-division',
             name: 'E-Commerce Division',
             description: 'Digital commerce strategies and online business models',
             icon: 'bi bi-cart',
@@ -82,6 +89,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'entrepreneurship-division',
             name: 'Entrepreneurship Division',
             description: 'Starting and managing successful business ventures',
             icon: 'bi bi-rocket',
@@ -98,6 +106,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'human-resources-division',
             name: 'Human Resources Division',
             description: 'HR management and organizational development',
             icon: 'bi bi-people',
@@ -113,6 +122,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'industry-division',
             name: 'Industry Division',
             description: 'Industry-specific knowledge and sector expertise',
             icon: 'bi bi-building',
@@ -129,6 +139,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'management-division',
             name: 'Management Division',
             description: 'Leadership and organizational management skills',
             icon: 'bi bi-person-badge',
@@ -145,6 +156,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'media-division',
             name: 'Media Division',
             description: 'Media production and content creation for business',
             icon: 'bi bi-tv',
@@ -159,6 +171,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'operations-division',
             name: 'Operations Division',
             description: 'Business operations and process optimization',
             icon: 'bi bi-gear',
@@ -175,6 +188,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'project-management-division',
             name: 'Project Management Division',
             description: 'Project planning, execution and delivery management',
             icon: 'bi bi-clipboard-check',
@@ -190,6 +204,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'real-estate-division',
             name: 'Real Estate Division',
             description: 'Real estate investment and property management',
             icon: 'bi bi-building-fill',
@@ -205,6 +220,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'sales-division',
             name: 'Sales Division',
             description: 'Sales techniques and customer relationship management',
             icon: 'bi bi-graph-up-arrow',
@@ -221,6 +237,7 @@ const BusinessDivisions = () => {
             ]
         },
         {
+            id: 'other-business-division',
             name: 'Other Business Division',
             description: 'Specialized business skills and emerging trends',
             icon: 'bi bi-briefcase',
@@ -237,105 +254,170 @@ const BusinessDivisions = () => {
         }
     ];
 
+    const division = divisions.find(div => div.id === divisionId);
+
+    if (!division) {
+        return (
+            <section className="py-20 bg-gray-50 min-h-screen flex items-center justify-center">
+                <div className="text-center">
+                    <h1 className="text-4xl font-bold text-gray-800 mb-4">Division Not Found</h1>
+                    <p className="text-gray-600 mb-8">The requested division information is not available.</p>
+                    <Link to="/business-divisions" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+                        Back to Divisions
+                    </Link>
+                </div>
+            </section>
+        );
+    }
+
     return (
-        <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
             {/* Background decorative elements */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full opacity-20 blur-3xl"></div>
                 <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full opacity-20 blur-3xl"></div>
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
-                <motion.div
-                    className="text-center mb-16"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Business Skill Divisions</h1>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Explore our comprehensive range of business skill divisions designed to enhance your professional capabilities
-                    </p>
-                </motion.div>
-
+                {/* Header */}
                 <motion.div
                     className="mb-8"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    transition={{ duration: 0.6 }}
                 >
                     <Link
-                        to="/courses"
-                        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300"
+                        to="/business-divisions"
+                        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300 mb-4"
                     >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
-                        Back to All Courses
+                        Back to Business Divisions
                     </Link>
                 </motion.div>
 
+                {/* Division Header */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-professional mb-8"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                    <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center space-x-4">
+                            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl">
+                                <i className={`${division.icon} text-white`}></i>
+                            </div>
+                            <div>
+                                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{division.name}</h1>
+                                <p className="text-gray-600">{division.description}</p>
+                            </div>
+                        </div>
+                        <div className="text-right">
+                            <span className="px-4 py-2 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">
+                                {division.courses.length} Courses Available
+                            </span>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* All Courses - Professional List Layout */}
+                <motion.div
+                    className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-professional"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                    {divisions.map((division, index) => (
-                        <motion.div
-                            key={division.name}
-                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-professional hover:shadow-professional-lg transition-all duration-300 card-3d group"
-                            whileHover={{ scale: 1.03, y: -5 }}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                        >
-                            <div className="flex items-center justify-between mb-4">
-                                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">
-                                    <i className={`${division.icon} text-white`}></i>
-                                </div>
-                                <span className="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-semibold rounded-full">
-                                    Division
-                                </span>
-                            </div>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Available Courses</h2>
 
-                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                                {division.name}
-                            </h3>
+                    <div className="space-y-4">
+                        {division.courses.map((course, index) => (
+                            <motion.div
+                                key={index}
+                                className="bg-gradient-to-r from-gray-50 to-blue-50/50 rounded-xl p-6 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-lg"
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.05 }}
+                            >
+                                <div className="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div className="flex items-start space-x-4 mb-4 lg:mb-0">
+                                        <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-xl flex-shrink-0">
+                                            <i className={`${division.icon} text-white`}></i>
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-xl font-bold text-gray-900 mb-2">
+                                                {course}
+                                            </h3>
+                                            <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                                                <div className="flex items-center">
+                                                    <svg className="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                    Duration: 3-6 months
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <svg className="w-4 h-4 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                    Eligibility: Beginners to Advanced
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <svg className="w-4 h-4 mr-1 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                                    </svg>
+                                                    WSQF Certified
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                                {division.description}
-                            </p>
-
-
-                            <div className="mb-4">
-                                <h4 className="text-sm font-semibold text-gray-800 mb-2">Popular Courses:</h4>
-                                <div className="space-y-2">
-                                    {division.courses.slice(0, 3).map((course, courseIndex) => (
+                                    <div className="flex flex-col sm:flex-row gap-3 lg:ml-6">
                                         <Link
-                                            key={courseIndex}
                                             to={`/certificate/${course.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
-                                            className="block px-3 py-2 bg-gray-50 hover:bg-blue-50 text-gray-700 hover:text-blue-700 text-sm rounded-lg transition-colors duration-300 border-l-2 border-transparent hover:border-blue-500"
+                                            className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 text-center whitespace-nowrap"
                                         >
-                                            {course}
+                                            View Details
                                         </Link>
-                                    ))}
-                                    {division.courses.length > 3 && (
-                                        <Link
-                                            to={`/division/${division.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
-                                            className="block px-3 py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 hover:text-blue-800 text-sm rounded-lg transition-colors duration-300 border-l-2 border-blue-500"
-                                        >
-                                            View All {division.courses.length} Courses →
-                                        </Link>
-                                    )}
+                                        <button className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 whitespace-nowrap">
+                                            Enroll Now
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* Call to Action */}
+                <motion.div
+                    className="text-center mt-12"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                >
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to Start Your Learning Journey?</h2>
+                    <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+                        Choose from our comprehensive range of {division.name} courses and take the first step towards professional excellence.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link
+                            to="/contact"
+                            className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                        >
+                            Get Course Information
+                        </Link>
+                        <Link
+                            to="/business-divisions"
+                            className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300"
+                        >
+                            Explore Other Divisions
+                        </Link>
+                    </div>
                 </motion.div>
             </div>
         </section>
     );
 };
 
-export default BusinessDivisions;
+export default DivisionDetails;
