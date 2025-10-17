@@ -191,36 +191,12 @@ const BusinessDivisions = () => {
                                 </div>
                             </div>
 
-                            <div className="space-y-3">
-                                <div className="mb-4">
-                                    <h4 className="text-sm font-semibold text-gray-800 mb-2">Popular Courses:</h4>
-                                    <div className="space-y-2">
-                                        {division.courses.slice(0, 3).map((course, courseIndex) => (
-                                            <Link
-                                                key={courseIndex}
-                                                to={`/certificate/${course.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
-                                                className="block px-3 py-2 bg-gray-50 hover:bg-blue-50 text-gray-700 hover:text-blue-700 text-sm rounded-lg transition-colors duration-300 border-l-2 border-transparent hover:border-blue-500"
-                                            >
-                                                {course}
-                                            </Link>
-                                        ))}
-                                        {division.courses.length > 3 && (
-                                            <Link
-                                                to={`/certificate/${division.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
-                                                className="block px-3 py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 hover:text-blue-800 text-sm rounded-lg transition-colors duration-300 border-l-2 border-blue-500"
-                                            >
-                                                View All {division.courses.length} Courses →
-                                            </Link>
-                                        )}
-                                    </div>
-                                </div>
-                                <Link
-                                    to={`/certificate/${division.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
-                                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group-hover:from-blue-700 group-hover:to-blue-800 text-center block"
-                                >
-                                    Explore Division
-                                </Link>
-                            </div>
+                            <Link
+                                to={`/certificate/${division.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
+                                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group-hover:from-blue-700 group-hover:to-blue-800 text-center block"
+                            >
+                                Explore Division
+                            </Link>
                         </motion.div>
                     ))}
                 </motion.div>
