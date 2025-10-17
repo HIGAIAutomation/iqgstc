@@ -49,7 +49,7 @@ const Header = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                 >
                     <img
-                        src="/src/assets/iqgstcLogo.png"
+                        src="/iqgstcLogo.png"
                         alt="IQGSTc Logo"
                         className="h-20 w-20 object-contain rounded-4xl"
                     />
