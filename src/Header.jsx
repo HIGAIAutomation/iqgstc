@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from './assets/iqgstc-logo.png';
 
 const Header = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -49,7 +50,7 @@ const Header = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                 >
                     <img
-                        src="/assets/iqgstc-logo.png"
+                        src={logo}
                         alt="IQGSTc Logo"
                         className="h-20 w-20 object-contain rounded-4xl"
                     />

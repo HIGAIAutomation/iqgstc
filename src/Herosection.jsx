@@ -1,12 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import logo from './assets/iqgstc-logo.png';
+import herosection from './assets/herosection.jpg';
 
 const Herosection = () => {
     return (
         <section className="w-full min-h-screen flex flex-col justify-center items-center text-white relative overflow-hidden pt-16 pb-32">
             {/* Background Image */}
-            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/assets/herosection.jpg)'}}></div>
+            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${herosection})`}}></div>
 
             {/* Overlay for better text readability */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-indigo-900/70 to-slate-900/80"></div>
