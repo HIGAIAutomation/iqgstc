@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { categorizeCourses, getAllCourses, getCourseCounts } from '../utils/courseUtils';
 
 const Courses = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -8,61 +9,16 @@ const Courses = () => {
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
 
+    // Get dynamic data from JSON
+    const divisionsData = useMemo(() => getCourseCounts(), []);
+    const allCourses = useMemo(() => getAllCourses(), []);
+    const categorizedCourses = useMemo(() => categorizeCourses(), []);
+
     const mainDivisions = [
         'CATEGORY COURSES',
         'SCHOOL COURSES',
         'SPECIALISED COURSES'
     ];
-
-    const divisionsData = {
-        'CATEGORY COURSES': {
-            'ALLIED HEALTH EDUCATION': 73,
-            'AGRICULTURE EDUCATION': 44,
-            'AUTOMOBILE EDUCATION': 40,
-            'CHILD EDUCATION': 38,
-            'CIVIL & ARCHITECTURAL EDUCATION': 24,
-            'COMMUNICATIVE & SOFT SKILLS EDUCATION': 8,
-            'DAIRY EDUCATION': 7,
-            'ELECTRICAL & ELECTRONICS EDUCATION': 48,
-            'FISHERIES EDUCATION': 17,
-            'HOME & INDUSTRY MAINTENANCE EDUCATION': 12,
-            'HOME BUSINESS EDUCATION': 30,
-            'INTERIOR & EXTERIOR EDUCATION': 29,
-            'OFFICE MANAGEMENT EDUCATION': 19,
-            'POULTRY EDUCATION': 14,
-            'VETERINARY EDUCATION': 7
-        },
-        'SCHOOL COURSES': {
-            'ACUPUNCTURE SCHOOL': 54,
-            'AYURVEDA SCHOOL': 49,
-            'BEAUTY SCHOOL': 16,
-            'COMPUTER COLLEGE & SCHOOL': 88,
-            'FIRE & SAFETY SCHOOL': 56,
-            'FOREST & ENVIRONMENTAL SCHOOL': 11,
-            'GEMS & JEWELLERY SCHOOL': 15,
-            'GEO SCHOOL': 5,
-            'HOMEOPATHY SCHOOL': 19,
-            'HOTEL MANAGEMENT & TOURISM SCHOOL': 57,
-            'LANGUAGE SCHOOL': 16,
-            'MUSIC SCHOOL': 14,
-            'SIDDHA SCHOOL': 23,
-            'SPORTS SCHOOL': 10,
-            'TECHNICAL TRAINING SCHOOL': 59,
-            'TEXTILE SCHOOL': 6,
-            'UNANI SCHOOL': 10,
-            'YOGA AND NATUROPATHY SCHOOL': 64
-        },
-        'SPECIALISED COURSES': {
-            'ALLIED HEALTH COURSES': 83,
-            'AVIATION COURSES': 18,
-            'BIO-TECHNOLOGY COURSES': 6,
-            'BUSINESS COURSES': 121,
-            'FASHION COURSES': 37,
-            'MEDIA COURSES': 37,
-            'SHIPPING COURSES': 32,
-            'SOLAR COURSES': 18
-        }
-    };
 
     const feeStructure = {
         'CATEGORY COURSES': {
@@ -246,15 +202,15 @@ const Courses = () => {
         ]
     };
 
-    // Sample data for suggestions
-    const allSuggestions = [
+    // Dynamic data for suggestions
+    const allSuggestions = useMemo(() => [
         ...mainDivisions,
-        ...Object.keys(divisionsData['CATEGORY COURSES']),
-        ...Object.keys(divisionsData['SCHOOL COURSES']),
-        ...Object.keys(divisionsData['SPECIALISED COURSES']),
+        ...Object.keys(divisionsData['CATEGORY COURSES'] || {}),
+        ...Object.keys(divisionsData['SCHOOL COURSES'] || {}),
+        ...Object.keys(divisionsData['SPECIALISED COURSES'] || {}),
         // Add course codes for direct search
-        ...Object.values(courseDetails).flat().map(course => course.code)
-    ];
+        ...allCourses.map(course => course.code)
+    ], [divisionsData, allCourses]);
 
     const filteredDivisions = Object.keys(divisionsData[selectedDivision] || divisionsData).filter(division =>
         division.toLowerCase().includes(searchTerm.toLowerCase())
@@ -288,9 +244,9 @@ const Courses = () => {
         // If the suggestion is a course code, navigate directly to course details
         else if (suggestion.match(/^[A-Z]{3,4}\d{3}$/)) {
             // Find which division and sub-division this course belongs to
-            for (const [division, subDivisions] of Object.entries(divisionsData)) {
-                for (const [subDivision, count] of Object.entries(subDivisions)) {
-                    if (courseDetails[subDivision]?.some(course => course.code === suggestion)) {
+            for (const [division, subDivisions] of Object.entries(categorizedCourses)) {
+                for (const [subDivision, courses] of Object.entries(subDivisions)) {
+                    if (courses.some(course => course.code === suggestion)) {
                         window.location.href = `/courses/${division}/${encodeURIComponent(subDivision)}/${suggestion}`;
                         return;
                     }
