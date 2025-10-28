@@ -55,6 +55,7 @@ export const categorizeCourses = () => {
   // Prefix mapping to categories
   const prefixMapping = {
     'AHE': 'ALLIED HEALTH EDUCATION',
+    'AHS': 'ALLIED HEALTH COURSES',
     'AE': 'AGRICULTURE EDUCATION',
     'AME': 'AUTOMOBILE EDUCATION',
     'CE': 'CHILD EDUCATION',
@@ -96,22 +97,33 @@ export const categorizeCourses = () => {
     'SLR': 'SOLAR COURSES'
   };
 
+  // Max courses for limited categories
+  const maxCourses = {
+    'ALLIED HEALTH EDUCATION': 73,
+    'ALLIED HEALTH COURSES': 83
+  };
+  const counters = {};
+
   // Process each course
   Object.entries(coursesData).forEach(([code, course]) => {
     const prefix = code.substring(0, code.length - 3); // Remove last 3 digits
     const category = prefixMapping[prefix];
 
     if (category) {
-      // Find which main division this category belongs to
-      for (const [mainDivision, subDivisions] of Object.entries(categories)) {
-        if (subDivisions[category]) {
-          subDivisions[category].push({
-            code,
-            name: course.name,
-            duration: course.duration,
-            subjects: course.subjects
-          });
-          break;
+      if (!counters[category]) counters[category] = 0;
+      if (maxCourses[category] === undefined || counters[category] < maxCourses[category]) {
+        // Find which main division this category belongs to
+        for (const [mainDivision, subDivisions] of Object.entries(categories)) {
+          if (subDivisions[category]) {
+            subDivisions[category].push({
+              code,
+              name: course.name,
+              duration: course.duration,
+              subjects: course.subjects
+            });
+            counters[category]++;
+            break;
+          }
         }
       }
     }

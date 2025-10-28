@@ -12,6 +12,8 @@ import ContactPage from './pages/ContactPage';
 import BusinessDivisions from './pages/BusinessDivisions';
 import DivisionDetails from './pages/DivisionDetails';
 import CertificateDetails from './pages/CertificateDetails';
+import FAQPage from './pages/FAQPage';
+import TermsPage from './pages/TermsPage';
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
            <Route path="/" element={<Home />} />
            <Route path="/courses" element={<CoursesPage />} />
            <Route path="/courses/:divisionId/:subDivisionId" element={<CourseDetails />} />
+           <Route path="/courses/:divisionId" element={<CoursesPage />} />
            <Route path="/courses/:divisionId/:subDivisionId/:courseCode" element={<CourseSubjectDetails />} />
            <Route path="/business-divisions" element={<BusinessDivisions />} />
            <Route path="/division/:divisionId" element={<DivisionDetails />} />
@@ -29,6 +32,8 @@ function App() {
            <Route path="/about" element={<AboutPage />} />
            <Route path="/wsc" element={<WSCPage />} />
            <Route path="/contact" element={<ContactPage />} />
+           <Route path="/faq" element={<FAQPage />} />
+           <Route path="/terms" element={<TermsPage />} />
         </Routes>
         <Footer />
       </div>

@@ -4443,6 +4443,26 @@
             }
         ]
     },
+    "AHE052": {
+        "name": "BSS DIPLOMA IN GENERAL HEALTHCARE & MATERNITY ASSISTANT",
+        "duration": "TWO YEARS",
+        "subjects": []
+    },
+    "AHE053": {
+        "name": "AUDIO-METRY TECHNICIAN",
+        "duration": "ONE YEAR",
+        "subjects": []
+    },
+    "AHE055": {
+        "name": "BSS DIPLOMA IN LAPROSCOPY ASSISTANT",
+        "duration": "ONE YEAR",
+        "subjects": []
+    },
+    "AHE062": {
+        "name": "BSS DIPLOMA IN OPTOMETRY",
+        "duration": "ONE YEAR",
+        "subjects": []
+    },
     "AHS001": {
         "name": "BSS DIPLOMA IN PATIENT CARE",
         "duration": "TWO YEARS",

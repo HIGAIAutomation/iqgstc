@@ -161,7 +161,7 @@ const Header = () => {
                     </motion.a>
 
                     <motion.a
-                        href="https://youtube.com/@iqgstc"
+                        href="https://www.youtube.com/@IQGlobalSkillsTrainingCentre"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hidden md:flex items-center justify-center w-10 h-10 bg-red-500 hover:bg-red-600 text-white rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -183,14 +183,16 @@ const Header = () => {
                     </motion.a>
 
                     <motion.a
-                        href="https://linkedin.com/company/iqgstc"
+                        href="https://x.com/iqgstc"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hidden md:flex items-center justify-center w-10 h-10 bg-blue-500 hover:bg-blue-600 text-white rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
-                        whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
+                        className="hidden md:flex items-center justify-center w-10 h-10 bg-black hover:bg-gray-800 text-white rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+                        whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0, 0, 0, 0.4)" }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" />
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
                     </motion.a>
 
                     <motion.button
@@ -293,7 +295,7 @@ const Header = () => {
                                         </a>
 
                                         <a
-                                            href="https://youtube.com/@iqgstc"
+                                            href="https://www.youtube.com/@IQGlobalSkillsTrainingCentre"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="flex items-center justify-center w-12 h-12 bg-red-600 hover:bg-red-700 text-white rounded-full font-medium transition-all duration-300 shadow-lg"
@@ -313,13 +315,15 @@ const Header = () => {
                                         </a>
 
                                         <a
-                                            href="https://linkedin.com/company/iqgstc"
+                                            href="https://x.com/iqgstc"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center justify-center w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-all duration-300 shadow-lg"
+                                            className="flex items-center justify-center w-12 h-12 bg-black hover:bg-gray-800 text-white rounded-full font-medium transition-all duration-300 shadow-lg"
                                             onClick={closeMobileMenu}
                                         >
-                                            <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6" />
+                                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                            </svg>
                                         </a>
                                     </div>
                                 </motion.div>

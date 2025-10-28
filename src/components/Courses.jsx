@@ -236,10 +236,19 @@ const Courses = () => {
         setSearchTerm(suggestion);
         setShowSuggestions(false);
 
-        // If the suggestion is a main division, set it as selected division
+        // If the suggestion is a main division, navigate to division page
         if (mainDivisions.includes(suggestion)) {
-            setSelectedDivision(suggestion);
-            setSelectedSubDivision('All');
+            window.location.href = `/courses/${encodeURIComponent(suggestion)}`;
+            return;
+        }
+        // If the suggestion is a sub-division, find its division and navigate
+        else if (Object.values(divisionsData).some(div => Object.keys(div).includes(suggestion))) {
+            for (const [division, subDivisions] of Object.entries(divisionsData)) {
+                if (Object.keys(subDivisions).includes(suggestion)) {
+                    window.location.href = `/courses/${encodeURIComponent(division)}/${encodeURIComponent(suggestion)}`;
+                    return;
+                }
+            }
         }
         // If the suggestion is a course code, navigate directly to course details
         else if (suggestion.match(/^[A-Z]{3,4}\d{3}$/)) {
@@ -247,7 +256,7 @@ const Courses = () => {
             for (const [division, subDivisions] of Object.entries(categorizedCourses)) {
                 for (const [subDivision, courses] of Object.entries(subDivisions)) {
                     if (courses.some(course => course.code === suggestion)) {
-                        window.location.href = `/courses/${division}/${encodeURIComponent(subDivision)}/${suggestion}`;
+                        window.location.href = `/courses/${encodeURIComponent(division)}/${encodeURIComponent(subDivision)}/${suggestion}`;
                         return;
                     }
                 }
