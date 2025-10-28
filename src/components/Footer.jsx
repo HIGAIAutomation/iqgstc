@@ -54,7 +54,7 @@ const Footer = () => {
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Resources</h4>
                         <ul className="space-y-2">
-                            <li><a href="#" className="text-gray-300 hover:text-white transition duration-300">Study Materials</a></li>
+                            <li><a href="https://www.bssve.in/StudyMaterials.asp" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition duration-300">Study Materials</a></li>
                             <li><a href="#" className="text-gray-300 hover:text-white transition duration-300">Practice Tests</a></li>
                             <li><a href="#" className="text-gray-300 hover:text-white transition duration-300">Video Tutorials</a></li>
                             <li><a href="#" className="text-gray-300 hover:text-white transition duration-300">Success Stories</a></li>
@@ -67,13 +67,13 @@ const Footer = () => {
                         <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
                         <div className="space-y-3 text-gray-300">
                             <div>
-                                <p className="font-medium text-white">Saravanan</p>
+                                <p className="font-medium text-white">Eswari Saravanan</p>
                                 <p className="text-sm">Director</p>
                             </div>
                             <div className="space-y-2">
                                 <p><a href="mailto:iqgstc@gmail.com" className="hover:text-blue-400 transition-colors duration-300">iqgstc@gmail.com</a></p>
                                 <p><a href="tel:+919003889990" className="hover:text-blue-400 transition-colors duration-300">+91 90038 89990</a></p>
-                                <p>H17, Moon Mahal, opposite Pothigai Nagar,<br />near Jeba Garden, Pothigai Nagar,<br />Tirunelveli, Tamil Nadu 627007</p>
+                                <p>H17,Opposite to  Moon Mahal , Pothigai Nagar,<br />near Jeba Garden, Pothigai Nagar,<br />Tirunelveli, Tamil Nadu 627007</p>
                             </div>
                         </div>
                         <div className="mt-4">

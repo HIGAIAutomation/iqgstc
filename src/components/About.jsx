@@ -14,10 +14,12 @@ const About = () => {
                             </p>
                         </div>
                         <div className="mb-8">
-                            <h3 className="text-2xl font-semibold text-blue-600 mb-4">Our Vision</h3>
-                            <p className="text-lg text-gray-700">
-                                To be a leading institute for world-class skill training and certification.
-                            </p>
+                            <h3 className="text-2xl font-semibold text-blue-600 mb-4">Main Objectives for WSC Career Development Certificate</h3>
+                            <ul className="list-disc list-inside text-lg text-gray-700">
+                                <li>It aims to align the competencies of the unregulated workforce of the world to the standardized World Skills Qualification Framework (WSQF).</li>
+                                <li>To enhance the employability opportunities of an individual as well as provide alternative routes to qualify at par with higher education.</li>
+                                <li>To provide opportunities for reducing inequalities based on privileging certain forms of knowledge over others.</li>
+                            </ul>
                         </div>
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-lg">

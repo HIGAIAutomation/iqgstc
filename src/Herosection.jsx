@@ -26,7 +26,16 @@ const Herosection = () => {
 
             {/* Professional Content */}
             <div className="relative z-10 text-center px-6 max-w-6xl">
-                
+
+
+                <motion.div
+                    className="text-2xl md:text-4xl font-light text-blue-100 mb-4"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.1 }}
+                >
+                    Empowering Global Skills with
+                </motion.div>
 
                 <motion.h1
                     className="text-4xl md:text-8xl font-heading font-black text-white mb-8 leading-tight"
@@ -34,11 +43,7 @@ const Herosection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.2 }}
                 >
-                    Empowering
-                    <br />
-                    <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">Global Skills</span>
-                    <br />
-                    <span className="text-amber-100">IQGSTc</span>
+                    IQ <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">Global Skills</span> Training Center
                 </motion.h1>
 
                 <motion.p
@@ -48,7 +53,7 @@ const Herosection = () => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
                     Transform your career with internationally recognized certifications.
-                    Join 1000+ successful professionals worldwide in our comprehensive skill development programs.
+                    Join 1000+ successful professionals worldwide in our comprehensive skill development courses.
                 </motion.p>
 
                 <motion.div
@@ -63,7 +68,7 @@ const Herosection = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Enquire
+                            Enquire Now
                         </motion.button>
                     </Link>
                     <Link to="/courses">
