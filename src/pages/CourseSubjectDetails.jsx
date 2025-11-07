@@ -1,10 +1,11 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getCourseByCode } from '../utils/courseUtils';
 
 const CourseSubjectDetails = () => {
     const { divisionId, subDivisionId, courseCode } = useParams();
+    const navigate = useNavigate();
 
     // Get course data from JSON
     const courseData = getCourseByCode(courseCode);
@@ -58,6 +59,18 @@ const CourseSubjectDetails = () => {
                     <p className="text-lg text-blue-600 font-semibold">
                         COURSE CODE: {courseCode}
                     </p>
+                    {courseCode.startsWith('CE') && (
+                        <div className="mt-4">
+                            <button
+                                onClick={() => {
+                                    navigate(`/contact?course=${encodeURIComponent(courseData?.name || courseCode)}`);
+                                }}
+                                className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-all font-semibold"
+                            >
+                                Join Now
+                            </button>
+                        </div>
+                    )}
                 </motion.div>
 
                 {/* Subject Details */}

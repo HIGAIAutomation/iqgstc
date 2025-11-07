@@ -54,7 +54,7 @@ const MontessoriOfferPopup = ({ isOpen, onClose }) => {
             </button>
             <button
               onClick={() => {
-                navigate('/contact');
+                navigate('/contact?course=Montessori Education');
                 onClose();
               }}
               className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-lg hover:from-green-600 hover:to-emerald-700 transition-all font-semibold"
