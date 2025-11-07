@@ -57,6 +57,7 @@ const Footer = () => {
                             <li><a href="https://www.bssve.in/StudyMaterials.asp" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition duration-300">Study Materials</a></li>
                             <li><Link to="/faq" className="text-gray-300 hover:text-white transition duration-300">FAQ</Link></li>
                             <li><Link to="/terms" className="text-gray-300 hover:text-white transition duration-300">Terms & Conditions</Link></li>
+                            <li><a href="#skill-assessment" className="text-gray-300 hover:text-white transition duration-300">Skill Assessment</a></li>
                         </ul>
                     </div>
 
