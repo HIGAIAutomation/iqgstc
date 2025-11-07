@@ -20,7 +20,7 @@ const Footer = () => {
                                     <circle cx="18.5" cy="5.5" r="1.5"/>
                                 </svg>
                             </a>
-                            <a href="https://x.com/iqgstc" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700 transition duration-300 transform hover:scale-110">
+                            <a href="https://x.com/iqgstc" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-200 transition duration-300 transform hover:scale-110">
                                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                                 </svg>
