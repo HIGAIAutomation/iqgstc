@@ -134,7 +134,7 @@ const WSCAtAGlance = () => {
                 >
                     {[
                         { number: "70+", label: "Years of Excellence" },
-                        { number: "1000+", label: "Certified Educators" },
+                        { number: "250+", label: "Courses Offered" },
                         { number: "50+", label: "Countries Served" },
                         { number: "100K+", label: "Students Trained" }
                     ].map((stat, index) => (
