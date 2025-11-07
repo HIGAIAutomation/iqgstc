@@ -47,9 +47,9 @@ const Educators = () => {
     };
 
     const educators = [
-        { name: 'Dr. Sarah Johnson', title: 'Skill Master - Digital Marketing', institute: 'Global Tech Institute' },
-        { name: 'Prof. Michael Chen', title: 'Certified Trainer - Web Development', institute: 'Code Academy' },
-        { name: 'Ms. Priya Sharma', title: 'Expert - Financial Planning', institute: 'Finance Excellence Center' },
+        { name: 'Dr. Rajesh Kumar', title: 'Director - IQGSTC', institute: 'IQ Global Skill Training Centre' },
+        { name: 'Prof. Anita Singh', title: 'Head of Curriculum Development', institute: 'IQGSTC' },
+        { name: 'Mr. Vikram Patel', title: 'Lead Instructor - Technical Skills', institute: 'IQGSTC' },
     ];
 
     return (
@@ -58,17 +58,22 @@ const Educators = () => {
                 <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Certified Educators & Skill Masters</h2>
 
                 <div className="grid md:grid-cols-2 gap-12">
-                    {/* Educators List */}
+                    {/* About IQGSTC */}
                     <div>
-                        <h3 className="text-2xl font-semibold text-gray-800 mb-6">Our Expert Educators</h3>
+                        <h3 className="text-2xl font-semibold text-gray-800 mb-6">About IQGSTC</h3>
                         <div className="space-y-4">
-                            {educators.map((educator, index) => (
-                                <div key={index} className="bg-white p-4 rounded-lg shadow">
-                                    <h4 className="font-semibold text-gray-800">{educator.name}</h4>
-                                    <p className="text-blue-600">{educator.title}</p>
-                                    <p className="text-gray-600">{educator.institute}</p>
-                                </div>
-                            ))}
+                            <div className="bg-white p-4 rounded-lg shadow">
+                                <h4 className="font-semibold text-gray-800">IQ Global Skill Training Centre (IQGSTC)</h4>
+                                <p className="text-gray-700">IQGSTC is a premier educational institution dedicated to providing high-quality skill development training. Our programs are designed to equip learners with practical skills and industry-relevant knowledge to excel in today's competitive job market.</p>
+                            </div>
+                            <div className="bg-white p-4 rounded-lg shadow">
+                                <h4 className="font-semibold text-gray-800">Our Mission</h4>
+                                <p className="text-gray-700">To bridge the gap between education and employment by offering comprehensive training programs that focus on real-world applications and career advancement.</p>
+                            </div>
+                            <div className="bg-white p-4 rounded-lg shadow">
+                                <h4 className="font-semibold text-gray-800">Why Choose IQGSTC?</h4>
+                                <p className="text-gray-700">We offer flexible learning options, expert instructors, and certifications that are recognized globally. Our curriculum is regularly updated to meet industry standards and technological advancements.</p>
+                            </div>
                         </div>
 
                         <div className="mt-8">
@@ -78,6 +83,8 @@ const Educators = () => {
                                 <li>Industry-recognized certifications</li>
                                 <li>Global skill standards compliance</li>
                                 <li>Continuous professional development</li>
+                                <li>Partnerships with leading organizations</li>
+                                <li>State-of-the-art learning facilities</li>
                             </ul>
                         </div>
                     </div>
