@@ -9,6 +9,7 @@ const SkillAssessment = () => {
     const [showAssessment, setShowAssessment] = useState(false);
     const [contactForm, setContactForm] = useState({ name: '', phone: '' });
     const [showContactForm, setShowContactForm] = useState(false);
+    const [assessmentCompleted, setAssessmentCompleted] = useState(false);
 
     const questions = [
         {
@@ -66,6 +67,8 @@ const SkillAssessment = () => {
         setShowResult(false);
         setShowContactForm(false);
         setContactForm({ name: '', phone: '' });
+        setAssessmentCompleted(true);
+        localStorage.setItem('skillAssessmentCompleted', 'true');
         // Trigger Montessori popup after assessment completion
         setTimeout(() => {
             // This will be handled by the parent component or global state
@@ -74,14 +77,20 @@ const SkillAssessment = () => {
     };
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowAssessment(true);
-        }, 3000); // 3 seconds for appearance
+        // Check if assessment was already shown in this session
+        const shown = sessionStorage.getItem('skillAssessmentShown');
+        const completed = localStorage.getItem('skillAssessmentCompleted');
 
-        // Remove auto-hide - popup stays until user interacts
-        return () => {
-            clearTimeout(timer);
-        };
+        if (!completed && !shown) {
+            const timer = setTimeout(() => {
+                setShowAssessment(true);
+                sessionStorage.setItem('skillAssessmentShown', 'true');
+            }, 3000); // 3 seconds for appearance
+
+            return () => {
+                clearTimeout(timer);
+            };
+        }
     }, []);
 
     const getRecommendation = () => {
