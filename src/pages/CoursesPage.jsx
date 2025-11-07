@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Courses from '../components/Courses';
 import Educators from '../components/Educators';
+import CoursePopup from '../components/CoursePopup';
 
 const CoursesPage = () => {
+    const [selectedCourse, setSelectedCourse] = useState(null);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const handleCourseSelect = (course) => {
+        setSelectedCourse(course);
+        setIsPopupOpen(true);
+    };
+
+    const closePopup = () => {
+        setIsPopupOpen(false);
+        setSelectedCourse(null);
+    };
+
     return (
         <div>
-            <Courses />
+            <Courses onCourseSelect={handleCourseSelect} />
             <Educators />
+            <CoursePopup
+                isOpen={isPopupOpen}
+                onClose={closePopup}
+                course={selectedCourse}
+            />
         </div>
     );
 };

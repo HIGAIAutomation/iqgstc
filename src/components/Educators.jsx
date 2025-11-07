@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Educators = () => {
     const [formData, setFormData] = useState({
-        name: '',
+        fullName: '',
         email: '',
         phone: '',
         qualification: '',
@@ -14,19 +15,35 @@ const Educators = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission
-        console.log('Form submitted:', formData);
-        alert('Thank you for your interest! We will contact you soon.');
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            qualification: '',
-            experience: '',
-            message: ''
-        });
+        try {
+            await emailjs.send(
+                'service_l5lz7lm',
+                'template_ultbkye',
+                {
+                    fullName: formData.fullName,
+                    email: formData.email,
+                    phone: formData.phone,
+                    qualification: formData.qualification,
+                    experience: formData.experience,
+                    message: formData.message,
+                },
+                'XjZ0cPS7pyiw7nEmZ'
+            );
+            alert('Thank you for your message! We will contact you soon.');
+            setFormData({
+                fullName: '',
+                email: '',
+                phone: '',
+                qualification: '',
+                experience: '',
+                message: ''
+            });
+        } catch (error) {
+            console.error('Email send failed:', error);
+            alert('Failed to send message. Please try again.');
+        }
     };
 
     const educators = [
@@ -73,8 +90,8 @@ const Educators = () => {
                                 <label className="block text-gray-700 mb-2">Full Name</label>
                                 <input
                                     type="text"
-                                    name="name"
-                                    value={formData.name}
+                                    name="fullName"
+                                    value={formData.fullName}
                                     onChange={handleChange}
                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     required
@@ -132,13 +149,14 @@ const Educators = () => {
                                     onChange={handleChange}
                                     rows="4"
                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required
                                 ></textarea>
                             </div>
                             <button
                                 type="submit"
                                 className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
                             >
-                                Apply Now
+                                Send Message
                             </button>
                         </form>
                     </div>

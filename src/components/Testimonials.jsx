@@ -4,38 +4,38 @@ import { motion } from 'framer-motion';
 const Testimonials = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const testimonials = [
+     const testimonials = [
         {
-            name: "Rahul Sharma",
-            course: "Digital Marketing Specialist",
+            name: "Arun Kumar",
+            course: "Montessori Course",
             rating: 5,
-            text: "IQGSTc transformed my career! The WSC certification opened doors to international opportunities. Highly recommended!",
+            text: "The Montessori course at IQGSTc provided me with deep insights into child-centered education. It transformed my approach to teaching and opened doors to rewarding opportunities in early childhood education.",
             image: "/placeholder-avatar.jpg",
-            achievement: "Promoted to Senior Marketing Manager"
+            achievement: "Certified Montessori Educator"
         },
         {
-            name: "Priya Patel",
-            course: "Web Development",
+            name: "Kavitha Rajan",
+            course: "BSS Diploma in Pre-Primary Education",
             rating: 5,
-            text: "Excellent training program with industry experts. The practical approach and certification helped me land my dream job.",
+            text: "The BSS Diploma in Pre-Primary Education provided me with invaluable knowledge and skills for working with young children. The program's focus on child development and teaching methodologies has transformed my career in early education.",
             image: "/placeholder-avatar.jpg",
-            achievement: "Full-Stack Developer at Tech Corp"
+            achievement: "Certified Pre-Primary Educator at Little Stars Academy"
         },
         {
             name: "Amit Kumar",
-            course: "Financial Planning",
+            course: "BSS Diploma in Cosmetology and Beauty Parlour Management",
             rating: 5,
-            text: "Professional certification that employers recognize globally. The course content was comprehensive and up-to-date.",
+            text: "The BSS Diploma in Cosmetology and Beauty Parlour Management equipped me with essential skills in beauty treatments and salon management. This comprehensive program opened doors to a thriving career in the beauty industry.",
             image: "/placeholder-avatar.jpg",
-            achievement: "Certified Financial Advisor"
+            achievement: "Licensed Cosmetologist at Glamour Beauty Salon"
         },
         {
-            name: "Sneha Reddy",
-            course: "Graphic Design",
+            name: "Vijay Kumar",
+            course: "Post Diploma in Computer Hardware Maintenance",
             rating: 5,
-            text: "Creative and supportive learning environment. The skills I gained are directly applicable in my current role.",
+            text: "The Post Diploma in Computer Hardware Maintenance equipped me with essential skills in repairing and maintaining computer systems. This comprehensive program opened doors to a thriving career in IT support.",
             image: "/placeholder-avatar.jpg",
-            achievement: "Lead Designer at Creative Studio"
+            achievement: "Certified Hardware Technician at Tech Solutions"
         }
     ];
 

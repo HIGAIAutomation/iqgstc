@@ -1,8 +1,10 @@
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { categorizeCourses, getAllCourses, getCourseCounts } from '../utils/courseUtils';
 
-const Courses = () => {
+const Courses = ({ onCourseSelect }) => {
+    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedDivision, setSelectedDivision] = useState('All');
     const [selectedSubDivision, setSelectedSubDivision] = useState('All');
@@ -238,14 +240,14 @@ const Courses = () => {
 
         // If the suggestion is a main division, navigate to division page
         if (mainDivisions.includes(suggestion)) {
-            window.location.href = `/courses/${encodeURIComponent(suggestion)}`;
+            navigate(`/courses/${encodeURIComponent(suggestion)}`);
             return;
         }
         // If the suggestion is a sub-division, find its division and navigate
         else if (Object.values(divisionsData).some(div => Object.keys(div).includes(suggestion))) {
             for (const [division, subDivisions] of Object.entries(divisionsData)) {
                 if (Object.keys(subDivisions).includes(suggestion)) {
-                    window.location.href = `/courses/${encodeURIComponent(division)}/${encodeURIComponent(suggestion)}`;
+                    navigate(`/courses/${encodeURIComponent(division)}/${encodeURIComponent(suggestion)}`);
                     return;
                 }
             }
@@ -256,7 +258,11 @@ const Courses = () => {
             for (const [division, subDivisions] of Object.entries(categorizedCourses)) {
                 for (const [subDivision, courses] of Object.entries(subDivisions)) {
                     if (courses.some(course => course.code === suggestion)) {
-                        window.location.href = `/courses/${encodeURIComponent(division)}/${encodeURIComponent(subDivision)}/${suggestion}`;
+                        const course = courses.find(c => c.code === suggestion);
+                        if (course && onCourseSelect) {
+                            // Pass course data to parent component for popup display
+                            onCourseSelect(course);
+                        }
                         return;
                     }
                 }
@@ -407,7 +413,7 @@ const Courses = () => {
                         {filteredDivisions.map((subDivision, index) => (
                             <motion.div
                                 key={subDivision}
-                                onClick={() => window.location.href = `/courses/${selectedDivision}/${encodeURIComponent(subDivision)}`}
+                                onClick={() => navigate(`/courses/${selectedDivision}/${encodeURIComponent(subDivision)}`)}
                                 className={`glass-effect p-6 rounded-2xl cursor-pointer transition-all duration-300 card-3d shadow-professional hover:shadow-professional-lg group ${
                                     selectedSubDivision === subDivision ? 'bg-blue-50 border-2 border-blue-300' : 'hover:bg-white/20'
                                 }`}

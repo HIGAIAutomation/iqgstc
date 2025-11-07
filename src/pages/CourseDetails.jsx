@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { categorizeCourses } from '../utils/courseUtils';
+import CoursePopup from '../components/CoursePopup';
 
 const CourseDetails = () => {
     const { divisionId, subDivisionId } = useParams();
 
+    // State for popup
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [selectedCourse, setSelectedCourse] = useState(null);
+
     // Get dynamic course data from JSON
     const categorizedCourses = categorizeCourses();
     const courses = categorizedCourses[divisionId]?.[subDivisionId] || [];
+
+    // Handle course click for CE courses
+    const handleCourseClick = (course) => {
+        if (course.code.startsWith('CE')) {
+            setSelectedCourse(course);
+            setIsPopupOpen(true);
+        }
+    };
 
 
     return (
@@ -76,12 +89,21 @@ const CourseDetails = () => {
                                     <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
                                         <td className="px-4 py-3 text-sm text-gray-900">{index + 1}</td>
                                         <td className="px-4 py-3 text-sm font-mono text-blue-600">
-                                            <Link
-                                                to={`/courses/${divisionId}/${encodeURIComponent(subDivisionId)}/${course.code}`}
-                                                className="hover:underline"
-                                            >
-                                                {course.code}
-                                            </Link>
+                                            {course.code.startsWith('CE') ? (
+                                                <button
+                                                    onClick={() => handleCourseClick(course)}
+                                                    className="hover:underline cursor-pointer bg-transparent border-none p-0"
+                                                >
+                                                    {course.code}
+                                                </button>
+                                            ) : (
+                                                <Link
+                                                    to={`/courses/${divisionId}/${encodeURIComponent(subDivisionId)}/${course.code}`}
+                                                    className="hover:underline"
+                                                >
+                                                    {course.code}
+                                                </Link>
+                                            )}
                                         </td>
                                         <td className="px-4 py-3 text-sm text-gray-900">{course.name}</td>
                                         <td className="px-4 py-3 text-sm text-gray-600">{course.duration}</td>
@@ -116,6 +138,13 @@ const CourseDetails = () => {
                     </Link>
                 </motion.div>
             </div>
+
+            {/* Course Popup */}
+            <CoursePopup
+                isOpen={isPopupOpen}
+                onClose={() => setIsPopupOpen(false)}
+                course={selectedCourse}
+            />
         </section>
     );
 };

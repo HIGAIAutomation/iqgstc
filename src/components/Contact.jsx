@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+    const [searchParams] = useSearchParams();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         email: '',
         phone: '',
-        subject: '',
+        course: '',
         message: ''
     });
+
+    const [message, setMessage] = useState({ type: '', text: '' });
+
+    emailjs.init('XjZ0cPS7pyiw7nEmZ');
+
+    useEffect(() => {
+        const courseParam = searchParams.get('course');
+        if (courseParam) {
+            setFormData(prev => ({ ...prev, course: decodeURIComponent(courseParam) }));
+        }
+    }, [searchParams]);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,10 +31,17 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission
-        console.log('Contact form submitted:', formData);
-        alert('Thank you for your message! We will get back to you soon.');
-        setFormData({ firstName: '', lastName: '', email: '', phone: '', subject: '', message: '' });
+        console.log('Sending email with data:', formData);
+        emailjs.send('service_l5lz7lm', 'template_gcg7e6r', formData)
+            .then((response) => {
+                console.log('Email sent successfully:', response);
+                setMessage({ type: 'success', text: 'Message sent successfully!' });
+                setFormData({ firstName: '', lastName: '', email: '', phone: '', course: '', message: '' });
+            })
+            .catch((error) => {
+                console.log('Email send failed:', error);
+                setMessage({ type: 'error', text: 'Failed to send message. Please try again.' });
+            });
     };
 
     return (
@@ -164,6 +185,11 @@ const Contact = () => {
                     {/* Contact Form */}
                     <div>
                         <h3 className="text-2xl font-semibold text-gray-800 mb-6">Get In Touch</h3>
+                        {message.text && (
+                            <div className={`mb-4 p-4 rounded-lg ${message.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                                {message.text}
+                            </div>
+                        )}
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div>
@@ -212,14 +238,14 @@ const Contact = () => {
                                 />
                             </div>
                             <div>
-                                <label className="block text-gray-700 mb-2">Subject</label>
+                                <label className="block text-gray-700 mb-2">Course</label>
                                 <input
                                     type="text"
-                                    name="subject"
-                                    value={formData.subject}
+                                    name="course"
+                                    value={formData.course}
                                     onChange={handleChange}
                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    required
+                                    placeholder="Enter the course you're interested in"
                                 />
                             </div>
                             <div>

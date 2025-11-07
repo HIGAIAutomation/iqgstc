@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from './assets/iqgstc-logo.png';
 import herosection from './assets/herosection.jpg';
 
-const Herosection = () => {
+const Herosection = ({ onCourseSelect }) => {
     return (
         <section className="w-full min-h-screen flex flex-col justify-center items-center text-white relative overflow-hidden pt-16 pb-32">
             {/* Background Image */}
@@ -71,15 +71,14 @@ const Herosection = () => {
                             Enquire Now
                         </motion.button>
                     </Link>
-                    <Link to="/courses">
-                        <motion.button
-                            className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            Explore Courses
-                        </motion.button>
-                    </Link>
+                    <motion.button
+                        onClick={() => onCourseSelect && onCourseSelect({ code: 'SAMPLE001', name: 'Sample Course', duration: '6 MONTHS', subjects: [] })}
+                        className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        Explore Courses
+                    </motion.button>
                 </motion.div>
 
 
