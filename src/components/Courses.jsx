@@ -297,7 +297,7 @@ const Courses = ({ onCourseSelect }) => {
                     Discover world-class skill training programs designed to elevate your career prospects
                 </motion.p>
 
-                {/* Search and Filter */}
+{/*               
                 <motion.div
                     className="mb-12 flex flex-col md:flex-row gap-6 justify-center"
                     initial={{ opacity: 0, y: 30 }}
@@ -318,7 +318,7 @@ const Courses = ({ onCourseSelect }) => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
 
-                        {/* Suggestions Dropdown */}
+                        
                         {showSuggestions && filteredSuggestions.length > 0 && (
                             <motion.div
                                 initial={{ opacity: 0, y: -10 }}
@@ -359,7 +359,7 @@ const Courses = ({ onCourseSelect }) => {
                             <option key={division} value={division}>{division}</option>
                         ))}
                     </select>
-                </motion.div>
+                </motion.div> */}
 
                 {/* Main Divisions */}
                 <motion.div
@@ -400,7 +400,7 @@ const Courses = ({ onCourseSelect }) => {
                             <p className="text-gray-600 text-sm">Explore various sub-divisions and courses</p>
                         </motion.div>
                     ))}
-                </motion.div>
+                </motion.div> 
 
                 {/* Sub-Divisions */}
                 {selectedDivision !== 'All' && (
