@@ -97,15 +97,15 @@ const FAQPage = () => {
             answer: "Our office hours are Monday to Friday, 9:00 AM to 7:00 PM, and Saturday 9:00 AM to 5:00 PM. We provide 24/7 support through WhatsApp and email for urgent queries."
         },
         {
-            question: "Where is your training center located?",
-            answer: "Our main training center is located at H17, Moon Mahal, opposite Pothigai Nagar, near Jeba Garden, Pothigai Nagar, Tirunelveli, Tamil Nadu 627007. We also offer online training programs accessible from anywhere."
+            question: "Where is your training centre located?",
+            answer: "Our main training centre is located at H17, Moon Mahal, opposite Pothigai Nagar, near Jeba Garden, Pothigai Nagar, Tirunelveli, Tamil Nadu 627007. We also offer online training programs accessible from anywhere."
         },
         {
             question: "Do you offer corporate training programs?",
             answer: "Yes, we provide customized corporate training programs for organizations. Our programs can be tailored to meet specific industry requirements and skill development needs. Contact us for corporate training inquiries."
         },
         {
-            question: "What makes IQGSTc different from other training centers?",
+            question: "What makes IQGSTc different from other training centres?",
             answer: "IQGSTc stands out due to our partnership with World Skill Council, internationally recognized certifications, comprehensive curriculum aligned with WSQF, experienced faculty, modern learning platforms, and strong industry connections for placements."
         }
     ];

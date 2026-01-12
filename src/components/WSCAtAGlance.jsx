@@ -134,9 +134,9 @@ const WSCAtAGlance = () => {
                 >
                     {[
                         { number: "70+", label: "Years of Excellence" },
-                        { number: "250+", label: "Courses Offered" },
+                        { number: "1000+", label: "Courses Offered" },
                         { number: "50+", label: "Countries Served" },
-                        { number: "100K+", label: "Students Trained" }
+                        { number: "250+", label: "Students Trained" }
                     ].map((stat, index) => (
                         <motion.div
                             key={index}

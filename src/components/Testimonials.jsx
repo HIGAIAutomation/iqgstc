@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 const Testimonials = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-     const testimonials = [
+    const testimonials = [
         {
-            name: "Arun Kumar",
+            name: "Priya Lakshmi",
             course: "Montessori Course",
             rating: 5,
             text: "The Montessori course at IQGSTc provided me with deep insights into child-centered education. It transformed my approach to teaching and opened doors to rewarding opportunities in early childhood education.",
@@ -188,11 +188,10 @@ const Testimonials = () => {
                                 <motion.button
                                     key={index}
                                     onClick={() => setCurrentIndex(index)}
-                                    className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                                        index === currentIndex
+                                    className={`w-4 h-4 rounded-full transition-all duration-300 ${index === currentIndex
                                             ? 'bg-gradient-to-r from-blue-600 to-purple-600 scale-125 shadow-lg'
                                             : 'bg-gray-300 hover:bg-gray-400'
-                                    }`}
+                                        }`}
                                     whileHover={{ scale: 1.2 }}
                                     whileTap={{ scale: 0.9 }}
                                 />

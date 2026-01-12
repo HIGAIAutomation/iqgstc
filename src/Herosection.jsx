@@ -8,12 +8,12 @@ const Herosection = ({ onCourseSelect }) => {
     return (
         <section className="w-full min-h-screen flex flex-col justify-center items-center text-white relative overflow-hidden pt-16 pb-32">
             {/* Background Image */}
-            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${herosection})`}}></div>
+            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${herosection})` }}></div>
 
             {/* Overlay for better text readability */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-indigo-900/70 to-slate-900/80"></div>
 
-            
+
 
             {/* Professional Background Pattern */}
             <div className="absolute inset-0 opacity-5">
@@ -43,7 +43,7 @@ const Herosection = ({ onCourseSelect }) => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.2 }}
                 >
-                    IQ <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">Global Skills</span> Training Center
+                    IQ <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">Global Skills</span> Training Centre
                 </motion.h1>
 
                 <motion.p
