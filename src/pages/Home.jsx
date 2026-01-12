@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Herosection from '../Herosection';
+import PromotionalSlider from '../components/PromotionalSlider';
 import WSCAtAGlance from '../components/WSCAtAGlance';
 import Testimonials from '../components/Testimonials';
 import WhyChooseUs from '../components/WhyChooseUs';
@@ -22,6 +23,7 @@ const Home = () => {
     return (
         <div>
             <Herosection onCourseSelect={handleCourseSelect} />
+            <PromotionalSlider />
             <WSCAtAGlance />
             <Testimonials />
             <WhyChooseUs />
